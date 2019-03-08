@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Adventure Alley</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a th:href="@{/}" class="w3-bar-item w3-button"><b>Adventure</b> Alley</a>
+        <!-- Float links to the right. Hide them on small screens
+        <div class="w3-right w3-hide-small">
+            <a href="/login" class="w3-bar-item w3-button">Login</a>
+        </div>-->
+    </div>
+</div>
+<br><br>
+
+    <!-- Header -->
+    <div class="w3-container w3-center w3-padding-32">
+        <h2> Welcome to <span class="w3-tag">Activity Alley</span></h2>
+    </div>
+<a th:href="@{/createActivity}" class="nav-link; btn btn-success">Create activity</a>
+<br>
+<div class="w3-content w3-padding" style="max-width:1564px">
+    <div class="w3-container w3-padding-32" id="activities">
+    </div>
+
+    <div th:each = "activity : ${a}">
+        <div class="w3-col l3 m6 w3-margin-bottom">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding" th:text = "${activity.title}"></div>
+                <a th:href="${'read/' + activity.id}">
+                    <img th:src="${activity.picture}" alt="Activity" style="width:90%">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

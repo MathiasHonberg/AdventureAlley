@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Adventure Alley</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a th:href="@{/}" class="w3-bar-item w3-button"><b>Adventure</b> Alley</a>
+        <!-- Float links to the right. Hide them on small screens
+        <div class="w3-right w3-hide-small">
+            <a href="/login" class="w3-bar-item w3-button">Login</a>
+        </div>-->
+    </div>
+</div>
+<br><br><br>
+<div class="container">
+    <form th:method="Put" th:action="@{/read}" th:object="${activity}">
+        <!--If you dont send the ID, JPA will create a new student object-->
+        <input type="hidden" th:field="${activity.id}"/>
+        <br>
+        <br>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Age Limit</th>
+                <th>Price</th>
+                <th>Opens at:</th>
+                <th>Closing at:</th>
+                <th></th>
+            </tr>
+            <td th:text="${activity.title}"/>
+            <td th:text="${activity.description}"/>
+            <td th:text="${activity.age}"/>
+            <td th:text="${activity.price}"/>
+            <td th:text="${activity.startTime}"/>
+            <td th:text="${activity.endTime}"/>
+            <td>
+                <img th:src="${activity.picture}" alt="Activity" style="width:40%">
+            </td>
+            </tr>
+        </table>
+
+    </form>
+
+</div>
+</body>
+</html>
