@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Book activity</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a th:href="@{/}">
+            <img src="https://upload.wikimedia.org/wikipedia/en/e/e0/Adventure_Alley_logo.png" alt="Logo" style="width:7%"/>
+        </a>
+        <!-- Float links to the right. Hide them on small screens-->
+        <div class="w3-right w3-hide-small">
+            <a href="/login" class="w3-bar-item w3-button">Employee Login</a>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div class="container">
+
+    <h1 style="font-family: 'Arial Black'">Booking</h1>
+    <form method="Post" th:action="@{/booking}">
+
+        <p>Name: </p><input type="text" size="40" th:field="${activity.title}"/>
+        <br><br>
+        <p>Email: </p><input type="email" size="40" th:field="${activity.description}"/>
+        <br><br>
+        <p>Participants: </p><input type="number" size="20" th:field="${activity.age}"/>
+        <br><br>
+        <p>Phone Number: </p><input type="number" step="40" size="40" th:field="${activity.price}"/>
+        <br><br>
+        <p>TIIIIIMMEEE!!! </p><input type="number" size="40" th:field="${activity.startTime}"/>
+        <input type="submit" class="btn btn-success" value="Book">
+
+    </form>
+</div>
+
+</body>
+</html>
