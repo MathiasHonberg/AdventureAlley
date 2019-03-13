@@ -2,6 +2,7 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Models.Activity;
 import com.example.demo.Services.ActivityService;
+import com.example.demo.Services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,9 @@ public class ActivityController {
 
     @Autowired
     ActivityService activityService;
+
+    @Autowired
+    BookingService bookingService;
 
     private Logger log = Logger.getLogger(ActivityController.class.getName());
 
@@ -48,6 +52,8 @@ public class ActivityController {
         log.info("details action called...");
 
         model.addAttribute("activity", activityService.readActivity(id));
+
+        model.addAttribute("times", bookingService.getTimes(id));
         return READ;
     }
 

@@ -7,15 +7,15 @@ public class Booking {
     private String email;
     private int participants;
     private int phoneNumber;
-    private Time time;
+    private int idTime;
 
-    public Booking(int idBooking, String name, String email, int participants, int phoneNumber, Time time) {
+    public Booking(int idBooking, String name, String email, int participants, int phoneNumber, int idTime) {
         this.idBooking = idBooking;
         this.name = name;
         this.email = email;
         this.participants = participants;
         this.phoneNumber = phoneNumber;
-        this.time = time;
+        this.idTime = idTime;
     }
 
     public Booking(int idBooking, String name, String email, int participants, int phoneNumber) {
@@ -70,12 +70,12 @@ public class Booking {
         this.phoneNumber = phoneNumber;
     }
 
-    public Time getTime() {
-        return time;
+    public int getIdTime() {
+        return idTime;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setIdTime(int idTime) {
+        this.idTime = idTime;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class Booking {
                 ", email='" + email + '\'' +
                 ", participants=" + participants +
                 ", phoneNumber=" + phoneNumber +
-                ", time=" + time +
+                ", idTime=" + idTime +
                 '}';
     }
 }
