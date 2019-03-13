@@ -9,6 +9,6 @@ import java.util.List;
 public interface BookingService {
 
     List<Time> getTimes(int id);
-
+    Time findTime(int id);
 
 }

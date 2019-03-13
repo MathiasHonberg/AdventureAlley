@@ -70,6 +70,12 @@
             color: white !important
         }
 
+        .days li .booked {
+            padding: 10px;
+            background: red;
+            color: white !important
+        }
+
         /* Add media queries for smaller screens */
         @media screen and (max-width:720px) {
             .weekdays li, .days li {width: 13.1%;}
@@ -82,6 +88,9 @@
 
         @media screen and (max-width: 290px) {
             .weekdays li, .days li {width: 12.2%;}
+        }
+        a {
+            color: lawngreen;
         }
     </style>
     <title>Adventure Alley</title>
@@ -164,12 +173,70 @@
         <li>Sa</li>
         <li>Su</li>
     </ul>
-
-    <ul class="days" th:each="t : ${times}">
-        <a th:href="${'/booking/' + activity.id}">
+    <ul class="days">
+    <!--<ul class="days" th:each="t : ${times}">-->
+        <!--<a th:href="${'/booking/' + t.idTime}">
             <li th:text="${t.sTime + ' - ' + t.eTime}"/>
-        </a>
-
+        </a>-->
+    <a th:href="${'/booking/' + times[0].idTime}">
+        <li> <span class="active" th:text="${times[0].sTime + ' - ' + times[0].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[4].idTime}">
+        <li> <span class="booked" th:text="${times[4].sTime + ' - ' + times[4].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[8].idTime}">
+        <li> <span class="active" th:text="${times[8].sTime + ' - ' + times[8].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[12].idTime}">
+        <li> <span class="active" th:text="${times[12].sTime + ' - ' + times[12].eTime}"></span></li>
+    </a>
+    <li></li>
+    <li></li>
+    <li></li>
+    <a th:href="${'/booking/' + times[1].idTime}">
+        <li> <span class="active" th:text="${times[1].sTime + ' - ' + times[1].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[5].idTime}">
+        <li> <span class="active" th:text="${times[5].sTime + ' - ' + times[5].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[6].idTime}">
+        <li> <span class="active" th:text="${times[6].sTime + ' - ' + times[6].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[13].idTime}">
+        <li> <span class="active" th:text="${times[13].sTime + ' - ' + times[13].eTime}"></span></li>
+    </a>
+    <li></li>
+    <li></li>
+    <li></li>
+    <a th:href="${'/booking/' + times[2].idTime}">
+        <li> <span class="booked" th:text="${times[2].sTime + ' - ' + times[2].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[6].idTime}">
+        <li> <span class="active" th:text="${times[6].sTime + ' - ' + times[6].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[10].idTime}">
+        <li><span class="active" th:text="${times[10].sTime + ' - ' + times[10].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[12].idTime}">
+        <li><span class="active" th:text="${times[14].sTime + ' - ' + times[14].eTime}"></span></li>
+    </a>
+    <li></li>
+    <li></li>
+    <li></li><a th:href="${'/booking/' + times[3].idTime}">
+        <li><span class="booked" th:text="${times[3].sTime + ' - ' + times[3].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[7].idTime}">
+        <li><span class="active" th:text="${times[7].sTime + ' - ' + times[7].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[11].idTime}">
+        <li><span class="active" th:text="${times[11].sTime + ' - ' + times[11].eTime}"></span></li>
+    </a>
+    <a th:href="${'/booking/' + times[15].idTime}">
+        <li><span class="active" th:text="${times[15].sTime + ' - ' + times[15].eTime}"></span></li>
+    </a>
+    <li></li>
+    <li></li>
+    <li></li>
 
     </ul>
 </div>

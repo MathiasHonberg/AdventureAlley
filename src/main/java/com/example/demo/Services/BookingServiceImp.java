@@ -18,4 +18,9 @@ public class BookingServiceImp implements BookingService {
 
         return bookingRepo.getTimes(id);
     }
+
+    @Override
+    public Time findTime(int id) {
+        return bookingRepo.findTime(id);
+    }
 }

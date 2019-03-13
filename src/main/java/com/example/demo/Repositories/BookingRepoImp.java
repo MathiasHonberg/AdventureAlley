@@ -3,8 +3,10 @@ package com.example.demo.Repositories;
 import com.example.demo.Models.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
@@ -46,5 +48,20 @@ public class BookingRepoImp implements BookingRepo{
 
                 return timeList;
             }
-        });    }
+        });
+    }
+
+    @Override
+    public Time findTime(int id) {
+            //this string is our message to our mysql database
+            String sql = "SELECT idTime, date, startTime, endTime, isBooked," +
+                    " idActivity FROM Time " +
+                    "WHERE idTime = ?";
+
+            RowMapper<Time> rowMapper = new BeanPropertyRowMapper<>(Time.class);
+            Time time = jdbc.queryForObject(sql, rowMapper, id);
+            return time;
+    }
+
+
 }

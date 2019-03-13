@@ -9,4 +9,5 @@ import java.util.List;
 public interface BookingRepo {
 
     List<Time> getTimes(int id);
+    Time findTime(int id);
 }

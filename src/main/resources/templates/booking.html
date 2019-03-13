@@ -28,21 +28,19 @@
 <br><br><br>
 <div class="container">
 
-    <h1 style="font-family: 'Arial Black'">Booking</h1>
-    <form method="Post" th:action="@{/booking}" th:object="${activity}">
-        <input type="hidden" th:field="${activity.id}"/>
+    <h1 style="font-family: 'Arial Black'">Booking: </h1>
 
-        <p>Name: </p><input type="text" size="40" th:field="${booking.name}"/>
+
+        <p>Name: </p><input type="text" size="40"/>
         <br><br>
-        <p>Email: </p><input type="email" size="40" th:field="${booking.email}"/>
+        <p>Email: </p><input type="email" size="40"/>
         <br><br>
-        <p>Participants: </p><input type="number" size="20" th:field="${booking.participants}"/>
+        <p>Participants: </p><input type="number" size="5"/>
         <br><br>
-        <p>Phone Number: </p><input type="number" step="40" size="40" th:field="${booking.phoneNumber}"/>
+        <p>Phone Number: </p><input type="number" step="40" size="40"/>
 
         <input type="submit" class="btn btn-success" value="Book">
 
-    </form>
 </div>
 
 </body>
